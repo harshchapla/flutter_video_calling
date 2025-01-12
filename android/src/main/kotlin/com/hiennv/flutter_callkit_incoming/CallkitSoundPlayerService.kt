@@ -60,14 +60,16 @@ class CallkitSoundPlayerService : Service() {
             }
             else -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    vibrator?.vibrate(
-                        VibrationEffect.createWaveform(
-                            longArrayOf(0L, 1000L, 1000L),
-                            0
-                        )
-                    )
+                    vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+                    //vibrator?.vibrate(
+                    //    VibrationEffect.createWaveform(
+                    //        longArrayOf(0L, 1000L, 1000L),
+                    //        0
+                    //    )
+                    //)
                 } else {
-                    vibrator?.vibrate(longArrayOf(0L, 1000L, 1000L), 0)
+                    vibrator.vibrate(200)
+                    //vibrator?.vibrate(longArrayOf(0L, 1000L, 1000L), 0)
                 }
             }
         }
